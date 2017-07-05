@@ -524,7 +524,7 @@ SV* array_sv;
     
     dMULTICALL;
     PUSH_MULTICALL(callback);
-    SAVEDESTRUCTOR_X(afp_destructor, c);
+    SAVEDESTRUCTOR(afp_destructor, c);
     permute_engine(c->array, AvARRAY(c->array), 0, c->len, 
         c->tmparea, multicall_cop);
     POP_MULTICALL;
