@@ -2,7 +2,11 @@
 
 # NAME
 
-Algorithm::Permute - Handy and fast permutation with object oriented interface
+Algorithm::Permute
+
+# VERSION
+
+version 0.12\_002
 
 # SYNOPSIS
 
@@ -27,6 +31,10 @@ Algorithm::Permute - Handy and fast permutation with object oriented interface
 This handy module makes performing permutation in Perl easy and fast, 
 although perhaps its algorithm is not the fastest on the earth. 
 It supports permutation r of n objects where 0 < r <= n. 
+
+# NAME
+
+Algorithm::Permute - Handy and fast permutation with object oriented interface
 
 # METHODS
 
@@ -133,3 +141,15 @@ problem to me.
 - **Data Structures, Algorithms, and Program Style Using C** - 
 Korsh and Garrett
 - **Algorithms from P to NP, Vol. I** - Moret and Shapiro
+
+# AUTHORS
+
+- Edwin Pratomo <edpratomo@cpan.org>
+- Stephan Loyd <stephanloyd9@gmail.com>
+
+# COPYRIGHT AND LICENSE
+
+This software is copyright (c) 1999 by Edwin Pratomo.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
