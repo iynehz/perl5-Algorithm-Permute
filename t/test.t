@@ -85,28 +85,28 @@ ok($ok);
 
 ######################################
 # test eval block inside permute block
-my @array = qw/a r s e/;
-my $i     = 0;
+@array = qw/a r s e/;
+$i     = 0;
 permute {
     eval { goto foo };
     ++$i
 }
 @array;
 if ( $@ =~ /^Can't "goto" out/ ) {
-    pass();
+    pass(q{Can't "goto" out});
 }
 else {
   foo:
     diag($@);
-    fail();
+    fail(q{Can't "goto" out});
 }
-is( $i, 24 );
+is( $i, 24, 'permuation count' );
 
 {
     # test r of n permutation
     my %expected = map { $_ => 1 } qw/2_1 1_2 3_2 2_3 3_1 1_3/;
     my $p = Algorithm::Permute->new( [ 1 .. 3 ], 2 );
-    ok($p);
+    ok( $p, 'new' );
 
     my $found;
     while ( my @r = $p->next ) {
@@ -116,12 +116,7 @@ is( $i, 24 );
         $found = delete $expected{$key};
         last unless $found;
     }
-    if ( not $found or keys(%expected) ) {
-        fail();
-    }
-    else {
-        pass();
-    }
+    ok( ( $found and !keys(%expected) ), 'r of n permuatation' );
 }
 
 ######################
@@ -138,7 +133,8 @@ SKIP: {
             $perm->reset;
             while ( my @res = $perm->next ) { }
         }
-    } 'OO interfae memory leak test';
+    }
+    'OO interfae memory leak test';
 
     no_leaks_ok {
         for ( $i = 0 ; $i < 10000 ; $i++ ) {
@@ -162,15 +158,18 @@ SKIP: {
             my $p = Algorithm::Permute->new( [ 1 .. 4 ] );
             while ( my @res = $p->next ) { }
         }
-    } 'A::P destructor memory leak test';
+    }
+    'A::P destructor memory leak test';
 
     no_leaks_ok {
+
         # test A::P destructor, r of n permutation
         for ( $i = 0 ; $i < 10000 ; $i++ ) {
             my $p = Algorithm::Permute->new( [ 1 .. 4 ], 3 );
             while ( my @res = $p->next ) { }
         }
-    } 'A::P destructor memory leak test, r of n permutation';
+    }
+    'A::P destructor memory leak test, r of n permutation';
 }
 
 done_testing;
