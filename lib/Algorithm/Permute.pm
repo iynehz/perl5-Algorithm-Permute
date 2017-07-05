@@ -164,18 +164,10 @@ The classic way, usually used by Lisp hackers: perldoc perlfaq4
 
 =back
 
-=head1 AUTHOR
-
-Edwin Pratomo, I<edpratomo@cpan.org>. 
-
-The object oriented interface is taken from Tom Phoenix's C<List::Permutor>.
-Robin Houston <robin@kitsite.com> invented and contributed the callback
-style interface.
-
 =head1 ACKNOWLEDGEMENT
 
-Yustina Sri Suharini - my ex-fiance-now-wife, for providing the permutation
-problem to me.
+In Edwin's words: Yustina Sri Suharini - my ex-fiance-now-wife, for
+providing the permutation problem to me.
 
 =head1 SEE ALSO
 
@@ -187,5 +179,21 @@ Korsh and Garrett
 =item * B<Algorithms from P to NP, Vol. I> - Moret and Shapiro
 
 =back
+
+=head1 AUTHOR
+
+Edwin Pratomo <edpratomo@cpan.org> was the original author.
+
+Stephan Loyd <sloyd@cpan.org> is co-maintainer.
+
+The object oriented interface is taken from Tom Phoenix's C<List::Permutor>.
+Robin Houston <robin@kitsite.com> invented and contributed the callback
+style interface.
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 1999 by Edwin Pratomo.
+
+This is free software; you can redistribute it and/or modify it under the same terms as the Perl 5 programming language system itself.
 
 =cut

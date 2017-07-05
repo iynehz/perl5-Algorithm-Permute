@@ -2,11 +2,7 @@
 
 # NAME
 
-Algorithm::Permute
-
-# VERSION
-
-version 0.12\_002
+Algorithm::Permute - Handy and fast permutation with object oriented interface
 
 # SYNOPSIS
 
@@ -31,10 +27,6 @@ version 0.12\_002
 This handy module makes performing permutation in Perl easy and fast, 
 although perhaps its algorithm is not the fastest on the earth. 
 It supports permutation r of n objects where 0 < r <= n. 
-
-# NAME
-
-Algorithm::Permute - Handy and fast permutation with object oriented interface
 
 # METHODS
 
@@ -123,18 +115,10 @@ O'Reilly: ftp://ftp.oreilly.com/published/oreilly/perl/cookbook
 - List::Permutor: http://www.cpan.org/modules/by-module/List
 - The classic way, usually used by Lisp hackers: perldoc perlfaq4
 
-# AUTHOR
-
-Edwin Pratomo, _edpratomo@cpan.org_. 
-
-The object oriented interface is taken from Tom Phoenix's `List::Permutor`.
-Robin Houston <robin@kitsite.com> invented and contributed the callback
-style interface.
-
 # ACKNOWLEDGEMENT
 
-Yustina Sri Suharini - my ex-fiance-now-wife, for providing the permutation
-problem to me.
+In Edwin's words: Yustina Sri Suharini - my ex-fiance-now-wife, for
+providing the permutation problem to me.
 
 # SEE ALSO
 
@@ -142,14 +126,18 @@ problem to me.
 Korsh and Garrett
 - **Algorithms from P to NP, Vol. I** - Moret and Shapiro
 
-# AUTHORS
+# AUTHOR
 
-- Edwin Pratomo <edpratomo@cpan.org>
-- Stephan Loyd <stephanloyd9@gmail.com>
+Edwin Pratomo <edpratomo@cpan.org> was the original author.
+
+Stephan Loyd <sloyd@cpan.org> is co-maintainer.
+
+The object oriented interface is taken from Tom Phoenix's `List::Permutor`.
+Robin Houston <robin@kitsite.com> invented and contributed the callback
+style interface.
 
 # COPYRIGHT AND LICENSE
 
 This software is copyright (c) 1999 by Edwin Pratomo.
 
-This is free software; you can redistribute it and/or modify it under
-the same terms as the Perl 5 programming language system itself.
+This is free software; you can redistribute it and/or modify it under the same terms as the Perl 5 programming language system itself.
