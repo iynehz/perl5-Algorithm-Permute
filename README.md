@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/stphnlyd/perl5-Algorithm-Permute.svg?branch=master)](https://travis-ci.org/stphnlyd/perl5-Algorithm-Permute)
+[![AppVeyor Status](https://ci.appveyor.com/api/projects/status/github/stphnlyd/perl5-Algorithm-Permute?branch=master&svg=true)](https://ci.appveyor.com/project/stphnlyd/perl5-Algorithm-Permute)
 
 # NAME
 
