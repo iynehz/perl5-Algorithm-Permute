@@ -8,28 +8,22 @@
 #   for commercial distribution without the prior approval of the author.
 
 package Algorithm::Permute;
-
 use strict;
-use vars qw($VERSION @ISA @EXPORT @EXPORT_OK);
+use warnings;
 
-require Exporter;
-require DynaLoader;
-require AutoLoader;
+our @ISA = qw(Exporter);
+our @EXPORT_OK = qw(permute);
 
-@ISA = qw(Exporter DynaLoader);
-@EXPORT_OK = qw(permute);
+# VERSION
 
-# Items to export into callers namespace by default. Note: do not export
-# names by default without a very good reason. Use EXPORT_OK instead.
-# Do not simply export all your public functions/methods/constants.
+our $XS_VERSION = $VERSION;
+$VERSION = eval $VERSION;
 
-bootstrap Algorithm::Permute $VERSION;
-
-# Preloaded methods go here.
-
-# Autoload methods go after =cut, and are processed by the autosplit program.
+require XSLoader;
+XSLoader::load('Algorithm::Permute', $XS_VERSION);
 
 1;
+
 __END__
 
 =head1 NAME
