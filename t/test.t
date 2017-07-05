@@ -37,7 +37,7 @@ while ( my @res = $perm->next ) {
     is( "@res", $correct[ $cnt++ ], "after reset" );
 }
 
-is( $cnt, scalar(@correct), "number of permutions" );
+is( $cnt, scalar(@correct), "permutations count" );
 
 # Tests for the callback interface by Robin Houston <robin@kitsite.com>
 
@@ -100,7 +100,7 @@ else {
     diag($@);
     fail(q{Can't "goto" out});
 }
-is( $i, 24, 'permuation count' );
+is( $i, 24, 'permutations count' );
 
 {
     # test r of n permutation
