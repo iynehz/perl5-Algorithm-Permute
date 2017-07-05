@@ -1,7 +1,7 @@
 Revision history for Perl extension Algorithm::Permute.
 
 0.12_003  Jul 6 2017
-    - TBD
+    - Fix crash on Windows
 
 0.12_002  Jul 5 2017
     - Fix XS loading issue.
