@@ -184,7 +184,7 @@ Korsh and Garrett
 
 Edwin Pratomo <edpratomo@cpan.org> was the original author.
 
-Stephan Loyd <sloyd@cpan.org> is co-maintainer.
+Stephan Loyd <sloyd@cpan.org> is co-maintainer after version 0.12.
 
 The object oriented interface is taken from Tom Phoenix's C<List::Permutor>.
 Robin Houston <robin@kitsite.com> invented and contributed the callback
