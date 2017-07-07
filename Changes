@@ -1,5 +1,8 @@
 Revision history for Perl extension Algorithm::Permute.
 
+0.12_005  Jul 7 2017
+    - Fix RT#77031
+
 0.12_004  Jul 6 2017
     - Fix cxinc issue on Perl 5.10 and lower
     - Fix RT#45434

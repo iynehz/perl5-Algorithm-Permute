@@ -345,27 +345,6 @@ next(self)
     listrecord *q; /* temporary holder */
 #endif
     PPCODE:
-    if (self->is_done && self->c) { /* permutation done */
-        self->is_done = coollex(self->c); /* generate next combination */
-#ifdef USE_LINKEDLIST
-        q = self->ptr_head;
-        for (i = 1; i <= self->num; i++) {
-            q = q->link;
-            q->info = self->num - i + 1;
-            self->pred[i] = self->ptr_head;
-        }
-        /* q->link = NULL; */ 
-        assert(q->link == NULL); /* should point to NULL */
-#else
-        /* reset self->p and self->loc */
-        for (i = 1; i <= self->num; i++) {
-            *(self->p + i) = self->num - i + 1;
-            *(self->loc + i) = 1;
-        }
-#endif
-        /* and update self->items */
-        coollex_visit(self->c, self->items + 1);
-    }
     if (self->is_done) { /* done permutation for all combination */
         if (self->c) {
             free_combination(self->c);
@@ -389,6 +368,28 @@ next(self)
         }
         self->is_done = _next(self->num, self->p, self->loc);
 #endif
+    }
+    /* generate next combination if necessary */
+    if (self->is_done && self->c) { /* permutation done */
+        self->is_done = coollex(self->c); /* generate next combination */
+#ifdef USE_LINKEDLIST
+        q = self->ptr_head;
+        for (i = 1; i <= self->num; i++) {
+            q = q->link;
+            q->info = self->num - i + 1;
+            self->pred[i] = self->ptr_head;
+        }
+        /* q->link = NULL; */ 
+        assert(q->link == NULL); /* should point to NULL */
+#else
+        /* reset self->p and self->loc */
+        for (i = 1; i <= self->num; i++) {
+            *(self->p + i) = self->num - i + 1;
+            *(self->loc + i) = 1;
+        }
+#endif
+        /* and update self->items */
+        coollex_visit(self->c, self->items + 1);
     }
 
 void
