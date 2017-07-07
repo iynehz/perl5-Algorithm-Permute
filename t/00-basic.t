@@ -60,12 +60,25 @@ permute { @foo = @array; } @array;
 my $ok = ( join( "", @foo ) eq join( "", reverse @array ) );
 ok($ok);
 
-#{
-#   tie @array, 'TieTest';
-#   permute { $_ = "@array" } @array;
-#   print (TieTest->c() == 600 ? "ok 21\n" : "not ok 21\t# ".TieTest->c()."\n");
-#   untie @array;
-#}
+{
+
+    package TieTest;
+    my $c;
+    sub TIEARRAY { bless [] }
+    sub FETCHSIZE { 5 }
+    sub FETCH     { ++$c; $_[1] }
+    sub c         { $c }
+}
+
+TODO: {
+    local $TODO = 'investigate this later';
+
+    tie @array, 'TieTest';
+    permute { $_ = "@array" } @array;
+    diag( TieTest->c );
+    ok( TieTest->c() == 600, 'tie test' );
+    untie @array;
+}
 
 ##########################################
 # test eval block outside of permute block
@@ -173,12 +186,4 @@ SKIP: {
 }
 
 done_testing;
-
-my $c;
-
-package TieTest;
-sub TIEARRAY { bless [] }
-sub FETCHSIZE { 5 }
-sub FETCH     { ++$c; $_[1] }
-sub c         { $c }
 
