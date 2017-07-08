@@ -10,12 +10,12 @@ Algorithm::Permute - Handy and fast permutation with object oriented interface
     use Algorithm::Permute;
 
     # default is to create n of n objects permutation generator
-    my $p = new Algorithm::Permute(['a'..'d']);
+    my $p = Algorithm::Permute->new(['a'..'d']);
 
     # but also you can create r of n objects permutation generator, where r <= n
-    my $p = new Algorithm::Permute([1..4], 3);
+    my $p = Algorithm::Permute->new([1..4], 3);
 
-    while (@res = $p->next) {
+    while (my @res = $p->next) {
       print join(", ", @res), "\n";
     }
 

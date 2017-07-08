@@ -1,5 +1,9 @@
 Revision history for Perl extension Algorithm::Permute.
 
+0.14  Jul 8 2017
+    - Some doc updates.
+    - Cleaned up some files in distribution.
+
 0.13  Jul 8 2017
     - SLOYD became co-maintainer.
     - Fixed build problem on Perl 5.24+. RT#112247
