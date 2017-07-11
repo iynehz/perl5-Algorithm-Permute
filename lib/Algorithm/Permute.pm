@@ -11,7 +11,7 @@ package Algorithm::Permute;
 use strict;
 use warnings;
 
-our @ISA = qw(Exporter);
+use Exporter 'import';
 our @EXPORT_OK = qw(permute);
 
 # VERSION
