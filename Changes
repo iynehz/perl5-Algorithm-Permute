@@ -1,6 +1,6 @@
 Revision history for Perl extension Algorithm::Permute.
 
-0.15_01  Jul 27 2017
+0.16  Aug 3 2017
     - Really use ppport.h
     - Skip 'Can't goto out' test on Perl <= 5.8.8
 
