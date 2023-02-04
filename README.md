@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/stphnlyd/perl5-Algorithm-Permute.svg?branch=master)](https://travis-ci.org/stphnlyd/perl5-Algorithm-Permute)
-[![AppVeyor Status](https://ci.appveyor.com/api/projects/status/github/stphnlyd/perl5-Algorithm-Permute?branch=master&svg=true)](https://ci.appveyor.com/project/stphnlyd/perl5-Algorithm-Permute)
+[![Build Status](https://travis-ci.org/iynehz/perl5-Algorithm-Permute.svg?branch=master)](https://travis-ci.org/iynehz/perl5-Algorithm-Permute)
+[![AppVeyor Status](https://ci.appveyor.com/api/projects/status/github/iynehz/perl5-Algorithm-Permute?branch=master&svg=true)](https://ci.appveyor.com/project/iynehz/perl5-Algorithm-Permute)
 
 # NAME
 
@@ -7,21 +7,23 @@ Algorithm::Permute - Handy and fast permutation with object oriented interface
 
 # SYNOPSIS
 
-    use Algorithm::Permute;
+```perl
+use Algorithm::Permute;
 
-    # default is to create n of n objects permutation generator
-    my $p = Algorithm::Permute->new(['a'..'d']);
+# default is to create n of n objects permutation generator
+my $p = Algorithm::Permute->new(['a'..'d']);
 
-    # but also you can create r of n objects permutation generator, where r <= n
-    my $p = Algorithm::Permute->new([1..4], 3);
+# but also you can create r of n objects permutation generator, where r <= n
+my $p = Algorithm::Permute->new([1..4], 3);
 
-    while (my @res = $p->next) {
-      print join(", ", @res), "\n";
-    }
+while (my @res = $p->next) {
+  print join(", ", @res), "\n";
+}
 
-    # and this one is the speed demon:
-    my @array = (1..9);
-    Algorithm::Permute::permute { print "@array\n" } @array;
+# and this one is the speed demon:
+my @array = (1..9);
+Algorithm::Permute::permute { print "@array\n" } @array;
+```
 
 # DESCRIPTION
 
@@ -69,8 +71,10 @@ default - which supports a callback style interface:
     and tied arrays, though unless you're doing something particularly abstruse you'd be
     better off copying the elements into a normal array first. Example:
 
-        my @array = (1..9);
-        permute { print "@array\n" } @array;
+    ```perl
+    my @array = (1..9);
+    permute { print "@array\n" } @array;
+    ```
 
     The code is run inside a pseudo block, rather than as a normal subroutine. That means
     you can't use `return`, and you can't jump out of it using `goto` and so on. Also,
@@ -90,21 +94,25 @@ and do some simple benchmark. The whole result is the following.
 
 Permutation of **eight** scalars:
 
-    Abigail's                     :  9 wallclock secs ( 8.07 usr +  0.30 sys =  8.37 CPU)
-    Algorithm::Permute            :  5 wallclock secs ( 5.72 usr +  0.00 sys =  5.72 CPU)
-    Algorithm::Permute qw(permute):  2 wallclock secs ( 1.65 usr +  0.00 sys =  1.65 CPU)
-    List::Permutor                : 27 wallclock secs (26.73 usr +  0.01 sys = 26.74 CPU)
-    Memoization                   : 32 wallclock secs (32.55 usr +  0.02 sys = 32.57 CPU)
-    perlfaq4                      : 36 wallclock secs (35.27 usr +  0.02 sys = 35.29 CPU)
+```
+Abigail's                     :  9 wallclock secs ( 8.07 usr +  0.30 sys =  8.37 CPU)
+Algorithm::Permute            :  5 wallclock secs ( 5.72 usr +  0.00 sys =  5.72 CPU)
+Algorithm::Permute qw(permute):  2 wallclock secs ( 1.65 usr +  0.00 sys =  1.65 CPU)
+List::Permutor                : 27 wallclock secs (26.73 usr +  0.01 sys = 26.74 CPU)
+Memoization                   : 32 wallclock secs (32.55 usr +  0.02 sys = 32.57 CPU)
+perlfaq4                      : 36 wallclock secs (35.27 usr +  0.02 sys = 35.29 CPU)
+```
 
 Permutation of **nine** scalars (the Abigail's routine is commented out, because
 it stores all of the result in memory, swallows all of my machine's memory):
 
-    Algorithm::Permute            :  43 wallclock secs ( 42.93 usr +  0.04 sys = 42.97 CPU)
-    Algorithm::Permute qw(permute):  15 wallclock secs ( 14.82 usr +  0.00 sys = 14.82 CPU)
-    List::Permutor                : 227 wallclock secs (226.46 usr +  0.22 sys = 226.68 CPU)
-    Memoization                   : 307 wallclock secs (306.69 usr +  0.43 sys = 307.12 CPU)
-    perlfaq4                      : 272 wallclock secs (271.93 usr +  0.33 sys = 272.26 CPU)
+```
+Algorithm::Permute            :  43 wallclock secs ( 42.93 usr +  0.04 sys = 42.97 CPU)
+Algorithm::Permute qw(permute):  15 wallclock secs ( 14.82 usr +  0.00 sys = 14.82 CPU)
+List::Permutor                : 227 wallclock secs (226.46 usr +  0.22 sys = 226.68 CPU)
+Memoization                   : 307 wallclock secs (306.69 usr +  0.43 sys = 307.12 CPU)
+perlfaq4                      : 272 wallclock secs (271.93 usr +  0.33 sys = 272.26 CPU)
+```
 
 The benchmark script is included in the bench directory. I understand that 
 speed is not everything. So here is the list of URLs of the alternatives, in 
